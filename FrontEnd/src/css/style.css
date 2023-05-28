@@ -1,0 +1,11 @@
+.footer{
+    width: 100%;
+    text-align: center;
+}
+.body-relatorio{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgb(238, 238, 238);
+}
