@@ -11,31 +11,20 @@
         public RelatorioMovimentacaoModel(List<Movimentacao> movimentacoes)
         {
             this.movimentacoes = new List<Movimentacao>(movimentacoes);
-            this.totalMovimentacoes = this.movimentacoes.Count;
-            this.totalImportacao = getImportacoes();
-            this.totalExportacao = getExportacoes();
+            this.Count();
         }
 
-        public int getImportacoes()
+        public void Count()
         {
-            int totalImportacao = 0;
             foreach(Movimentacao movimentacao in movimentacoes)
             {
-                if (movimentacao.Container.Categoria.Equals("IMPORTACAO"))         
-                    totalImportacao++;      
-            }
-            return totalImportacao;
-        }
+                if (movimentacao.Container.Categoria.Equals('IMPORTACAO'))
+                    this.totalImportacao++;  
 
-        public int getExportacoes()
-        {
-            int totalExportacoes = 0;
-            foreach (Movimentacao movimentacao in movimentacoes)
-            {
-                if (movimentacao.Container.Categoria.Equals("EXPORTACAO"))
-                    totalExportacoes++;
+                if (movimentacao.Container.Categoria.Equals('EXPORTACAO'))
+                    this.totalExportacao++;        
             }
-            return totalExportacoes;
+            this.totalMovimentacoes = movimentacoes.Count;
         }
     }
 }
